@@ -1,22 +1,18 @@
 import 'package:flutter/material.dart';
-import 'package:weather_app/widgets/no_data_widget.dart';
+import 'package:weather_app/Views/home_view.dart';
 
 void main() {
-  runApp(const HomePage());
+  runApp(const WeatherApp());
 }
 
-class HomePage extends StatelessWidget {
-  const HomePage({super.key});
+class WeatherApp extends StatelessWidget {
+  const WeatherApp({super.key});
 
   @override
   Widget build(BuildContext context) {
     return MaterialApp(
-      home: Scaffold(
-        appBar: AppBar(
-          title: Text("WeatherApp"),
-        ),
-        body:NoDataWidget()
-      ),
+      debugShowCheckedModeBanner: false,
+      home: HomeView()
     );
   }
 }
