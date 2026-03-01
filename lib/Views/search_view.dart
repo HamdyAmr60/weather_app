@@ -1,5 +1,6 @@
 import 'package:flutter/material.dart';
 
+
 class SearchView extends StatelessWidget {
   const SearchView({super.key});
 
@@ -18,6 +19,9 @@ class SearchView extends StatelessWidget {
         padding: const EdgeInsets.symmetric(horizontal: 18.0),
         child: Center(
           child: TextField(
+            onSubmitted: (value)  {
+              Navigator.pop(context);
+            },
             decoration: InputDecoration(
               contentPadding: EdgeInsetsGeometry.symmetric(
                 vertical: 32,
