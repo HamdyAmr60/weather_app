@@ -1,7 +1,8 @@
 import 'package:flutter/material.dart';
+import 'package:weather_app/model/weather_model.dart';
 class WeatherDetails extends StatelessWidget {
-  const WeatherDetails({super.key});
-
+  const WeatherDetails({super.key , required this.weather});
+final WeatherModel weather;
   @override
   Widget build(BuildContext context) {
     return Padding(
@@ -9,27 +10,32 @@ class WeatherDetails extends StatelessWidget {
       child: Column(
         mainAxisAlignment: MainAxisAlignment.center,
         children: [
-          Text("Alexandria",style:
+          Text(weather.city,style:
             TextStyle(
               fontSize: 30,
               fontWeight: FontWeight.bold
             ),),
+          Text("Last Updated : ${weather.lastUpdated.substring(10)}",style: TextStyle(
+              fontSize: 26,
+              fontWeight: FontWeight.bold
+          ),),
           SizedBox(height: 20,),
           Row(
             mainAxisAlignment: MainAxisAlignment.spaceBetween,
             children: [
-              Image.asset("assets/images/cloudy.png"),
-              Text("15",style: TextStyle(
+                Image.network("https:${weather.weatherIcon}" , height: 100,)
+
+              ,Text(weather.avgTemp.toString(),style: TextStyle(
                 fontSize: 26,
                 fontWeight: FontWeight.bold
               ),),
               Column(
                 children: [
-                  Text("max: 18",style: TextStyle(
+                  Text("max: ${weather.maxTemp}",style: TextStyle(
                     fontSize: 18,
                     fontWeight: FontWeight.bold
                   ),),
-                  Text("min: 9",style: TextStyle(
+                  Text("min: ${weather.minTemp}",style: TextStyle(
                       fontSize: 18,
                       fontWeight: FontWeight.bold
                   ),)
@@ -38,7 +44,7 @@ class WeatherDetails extends StatelessWidget {
             ],
           ),
           SizedBox(height: 20,),
-          Text("cloudy" , style: TextStyle(
+          Text(weather.weatherDescription , style: TextStyle(
             fontSize: 28,
             fontWeight: FontWeight.bold
           ),),

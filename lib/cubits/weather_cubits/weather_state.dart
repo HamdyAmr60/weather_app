@@ -1,10 +1,19 @@
-class WeatherStateLoaded {
+import '../../model/weather_model.dart';
+
+class WeatherState{
 
 }
 
-class NoWeatherState{
+
+class WeatherStateLoaded extends WeatherState {
+final WeatherModel weatherModel;
+
+WeatherStateLoaded(this.weatherModel);
+}
+
+class NoWeatherState extends WeatherState {
 
 }
-class WeatherStateFailed{
+class WeatherStateFailed extends WeatherState {
 
 }
